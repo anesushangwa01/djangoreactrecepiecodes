@@ -7,8 +7,19 @@ const REGISTER_URL = `${BASE_URL}register/`
 const LOGOUT_URL = `${BASE_URL}logout/`
 const NOTES_URL = `${BASE_URL}todos/`
 const AUTHENTICATED_URL = `${BASE_URL}authenticated/`
+const PASSWORD_RESET_URL = `${BASE_URL}password_reset/`
 
 axios.defaults.withCredentials = true; 
+
+export const password_reset = async (email) => {
+    try {
+        const response = await axios.post(PASSWORD_RESET_URL, { email }, { withCredentials: true });
+        return response.data;  // Assuming the backend returns a success message or status
+    } catch (error) {
+        console.error("Password reset failed:", error);
+        return false;  // Return false or handle the error as needed
+    }
+};
 
 export const login = async (username, password) => {
     try {

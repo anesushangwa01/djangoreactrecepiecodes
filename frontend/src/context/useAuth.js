@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-import { authenticated_user, login, logout, register } from '../api/endpoints';
+import { authenticated_user, login, logout, register,password_reset } from '../api/endpoints';
 
 const AuthContext = createContext();
 
@@ -29,6 +29,20 @@ export const AuthProvider = ({children}) => {
           nav('/')
         } else {
           alert('Incorrect username or password')
+        }
+    }
+
+    const emailUser = async (email) => {
+        try {
+          const response = await password_reset(email);
+          if (response) {
+            alert('Password reset email sent! Check your inbox.');
+          } else {
+            alert('Error sending email. Please try again.');
+          }
+        } catch (error) {
+          console.error(error);
+          alert('Error sending email. Please try again.');
         }
     }
 

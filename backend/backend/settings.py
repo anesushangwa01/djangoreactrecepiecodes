@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #add installations here
+    
     "corsheaders",
+    'anymail',
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
@@ -162,4 +163,23 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'anesushangwa01@gmail.com'
+# EMAIL_HOST_PASSWORD = 'aifz pxba oetu juf'
+# DEFAULT_FROM_EMAIL = 'anesushangwa01@gmail.com'
+
+EMAIL_BACKEND = "anymail.backends.mailjet.EmailBackend"
+DEFAULT_FROM_EMAIL = "anesushangwa01@gmail.com"  # Use your email
+SERVER_EMAIL = "anesushangwa01@gmail.com"
+
+# Mailjet settings
+ANYMAIL = {
+    "MAILJET_API_KEY": "6a30eeaf315d6ec4b28f7599e9646c74",
+    "MAILJET_SECRET_KEY": "e3934e362a6e756e92208801008356fe",
+}
