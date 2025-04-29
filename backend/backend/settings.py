@@ -179,7 +179,3 @@ DEFAULT_FROM_EMAIL = "anesushangwa01@gmail.com"  # Use your email
 SERVER_EMAIL = "anesushangwa01@gmail.com"
 
 # Mailjet settings
-ANYMAIL = {
-    "MAILJET_API_KEY": "6a30eeaf315d6ec4b28f7599e9646c74",
-    "MAILJET_SECRET_KEY": "e3934e362a6e756e92208801008356fe",
-}
